@@ -22,6 +22,7 @@ FEEDS = [
     [ "TheGuardian", "https://www.theguardian.com/world/rss" ],
     [ "RTE", "https://rte.ie/feeds/rss/?index=/news/" ],
     [ "Hackaday", "https://hackaday.com/feed/" ],
+    [ "Pluralistic", "https://pluralistic.net/feed/" ],
 ]
 
 ARTICLES = []
