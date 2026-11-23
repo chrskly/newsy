@@ -12,3 +12,10 @@ pip3 install -f requirements.txt
 ./newsy.py
 cp 2025-11-16-articles.pdf ~/path/to/sync/folder/
 ```
+
+To write the PDF directly to another directory, use `-o`/`--output-dir`
+(created if it doesn't exist):
+
+```
+./newsy.py --output-dir ~/path/to/sync/folder/
+```

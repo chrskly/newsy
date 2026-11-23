@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import argparse
 import datetime
+import os
 from datetime import timedelta, timezone
 import feedparser
 from newspaper import Article
@@ -115,10 +117,17 @@ def write_article_to_pdf(canvas, article):
 
 
 
+parser = argparse.ArgumentParser(description="Fetch RSS articles and render them to a PDF.")
+parser.add_argument("-o", "--output-dir", default=".",
+                    help="directory to write the PDF to (default: current directory)")
+args = parser.parse_args()
+
+os.makedirs(args.output_dir, exist_ok=True)
+
 print("Starting ...")
 # datestamp
 datestamp = datetime.datetime.now().strftime("%Y-%m-%d")
-pdf_file = f"{datestamp}-articles.pdf"
+pdf_file = os.path.join(args.output_dir, f"{datestamp}-articles.pdf")
 canvas = Canvas(pdf_file)
 
 for feed in FEEDS:
